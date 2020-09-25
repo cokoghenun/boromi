@@ -71,19 +71,19 @@ const Home = () => {
               fontWeight: 500,
               fontSize: '1.2em',
               alignItems: 'center',
-              borderRadius: '50px',
-              background: '#3C007F',
+              borderRadius: '.25rem',
+              background: '#9d5ffa',
               display: 'inline-flex',
               textDecoration: 'none',
               justifyContent: 'center',
-              textTransform: 'capitalize',
-              border: '2px #3C007F solid',
+              textTransform: 'uppercase',
+              border: '2px #9d5ffa solid',
               ':hover': {
-                color: '#3C007F',
+                color: '#9d5ffa',
                 background: '#FFF',
               },
             }}
-            to='/signup'
+            to='/login'
           >
             <span>get started</span>
           </Link>

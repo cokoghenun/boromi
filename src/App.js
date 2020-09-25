@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Home from './routes/Home';
+import Login from './routes/Login';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
         </Switch>
       </Router>
     </div>
