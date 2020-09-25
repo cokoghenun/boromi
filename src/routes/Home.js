@@ -1,6 +1,7 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 
 const Home = () => {
   return (
@@ -63,29 +64,8 @@ const Home = () => {
               quaerat magni facilis.
             </p>
           </div>
-          <Link
-            css={{
-              color: '#FFF',
-              width: '170px',
-              height: '46px',
-              fontWeight: 500,
-              fontSize: '1.2em',
-              alignItems: 'center',
-              borderRadius: '.25rem',
-              background: '#9d5ffa',
-              display: 'inline-flex',
-              textDecoration: 'none',
-              justifyContent: 'center',
-              textTransform: 'uppercase',
-              border: '2px #9d5ffa solid',
-              ':hover': {
-                color: '#9d5ffa',
-                background: '#FFF',
-              },
-            }}
-            to='/login'
-          >
-            <span>get started</span>
+          <Link to='/login'>
+            <Button>get started</Button>
           </Link>
         </section>
       </div>

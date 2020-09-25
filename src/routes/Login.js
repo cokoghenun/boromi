@@ -1,6 +1,7 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 import React, { useState } from 'react';
+import TopBar from '../components/TopBar';
 
 const tabCss = {
   signup: {
@@ -19,22 +20,14 @@ const Login = () => {
   const [activeTab, setActiveTab] = useState('signup');
   return (
     <div>
-      <div
-        css={{
-          display: 'flex',
-          alignItems: 'center',
-          padding: '1rem 0',
-          justifyContent: 'center',
-          boxShadow: '0 5px 15px 0 rgba(46,61,73,.12)',
-        }}
-      >
+      <TopBar>
         <img
           css={{ width: '40px' }}
           src='/image/boromi_dark.png'
           alt='boromi'
         />
         <span css={{ fontSize: '2rem' }}>boromi</span>
-      </div>
+      </TopBar>
       <div
         css={{
           margin: '50px auto 30px',
