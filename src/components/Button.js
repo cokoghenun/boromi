@@ -10,6 +10,7 @@ const Button = ({ children, ccss }) => {
         height: '46px',
         fontWeight: 500,
         fontSize: '1.2em',
+        cursor: 'pointer',
         alignItems: 'center',
         background: '#9d5ffa',
         display: 'inline-flex',
