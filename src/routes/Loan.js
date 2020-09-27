@@ -6,17 +6,16 @@ import Button from '../components/Button';
 const Loan = () => {
   return (
     <div>
-      <TopBar ccss={{ textTransform: 'capitalize' }}>select a plan</TopBar>
-      <div css={{ maxWidth: '600px', margin: '0 auto' }}>
+      <TopBar ccss={{ textTransform: 'capitalize' }}>plans</TopBar>
+      <div css={{ maxWidth: '700px', margin: '0 auto' }}>
         <div
           css={{
-            boxShadow:
-              '0 0 8px 0 rgba(17,22,26,.16),0 4px 8px 0 rgba(17,22,26,.08),0 8px 16px 0 rgba(17,22,26,.08)',
             display: 'flex',
-            margin: '1.5rem',
+            margin: '0 0 3rem',
             alignItems: 'center',
             borderRadius: '.5rem',
             padding: '1.5rem 2rem',
+            boxShadow: '0 0 20px 0 rgba(46,61,73,.15)',
             backgroundColor: '#9d5ffa1c',
           }}
         >
@@ -38,20 +37,17 @@ const Loan = () => {
             </div>
           </div>
           <div css={{ width: '25%', textAlign: 'center', marginLeft: '10px' }}>
-            <Button ccss={{ width: '120px', fontSize: '.9rem', height: '35px' }}>
-              start plan
-            </Button>
+            <Button ccss={{ fontSize: '.95rem' }}>start plan</Button>
           </div>
         </div>{' '}
         <div
           css={{
-            boxShadow:
-              '0 0 8px 0 rgba(17,22,26,.16),0 4px 8px 0 rgba(17,22,26,.08),0 8px 16px 0 rgba(17,22,26,.08)',
             display: 'flex',
-            margin: '1.5rem',
+            margin: '0 0 3rem',
             alignItems: 'center',
             borderRadius: '.5rem',
             padding: '1.5rem 2rem',
+            boxShadow: '0 0 20px 0 rgba(46,61,73,.15)',
           }}
         >
           <div css={{ width: '75%' }}>
@@ -72,20 +68,17 @@ const Loan = () => {
             </div>
           </div>
           <div css={{ width: '25%', textAlign: 'center', marginLeft: '10px' }}>
-            <Button ccss={{ width: '120px', fontSize: '.9rem', height: '35px' }}>
-              start plan
-            </Button>
+            <Button ccss={{ fontSize: '.95rem' }}>start plan</Button>
           </div>
         </div>{' '}
         <div
           css={{
-            boxShadow:
-              '0 0 8px 0 rgba(17,22,26,.16),0 4px 8px 0 rgba(17,22,26,.08),0 8px 16px 0 rgba(17,22,26,.08)',
             display: 'flex',
-            margin: '1.5rem',
+            margin: '0 0 3rem',
             alignItems: 'center',
             borderRadius: '.5rem',
             padding: '1.5rem 2rem',
+            boxShadow: '0 0 20px 0 rgba(46,61,73,.15)',
           }}
         >
           <div css={{ width: '75%' }}>
@@ -106,9 +99,7 @@ const Loan = () => {
             </div>
           </div>
           <div css={{ width: '25%', textAlign: 'center', marginLeft: '10px' }}>
-            <Button ccss={{ width: '120px', fontSize: '.9rem', height: '35px' }}>
-              start plan
-            </Button>
+            <Button ccss={{ fontSize: '.95rem' }}>start plan</Button>
           </div>
         </div>
       </div>

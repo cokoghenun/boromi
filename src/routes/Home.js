@@ -12,7 +12,6 @@ const Home = () => {
           height: '100vh',
           filter: 'blur(5px)',
           position: 'absolute',
-          backgroundImage: 'url("/image/mad_bus.jpg")',
         }}
       ></div>
       <nav></nav>
@@ -20,7 +19,7 @@ const Home = () => {
         css={{
           top: '50%',
           left: '50%',
-          color: '#FFF',
+          color: '#000',
           position: 'fixed',
           transform: 'translate(-50%, -50%)',
         }}
@@ -41,7 +40,6 @@ const Home = () => {
             <span
               css={{
                 fontSize: '2em',
-                textShadow: '1px 1px 2px #000',
               }}
             >
               boromi
@@ -54,7 +52,6 @@ const Home = () => {
               display: 'flex',
               margin: '30px 0',
               justifyContent: 'center',
-              textShadow: '1px 1px 2px #000',
             }}
           >
             <p css={{ maxWidth: '500px' }}>

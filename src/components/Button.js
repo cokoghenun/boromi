@@ -3,31 +3,38 @@ import { jsx } from '@emotion/core';
 
 const Button = ({ children, ccss }) => {
   return (
-    <div
+    <button
       css={{
-        color: '#FFF',
-        width: '170px',
-        height: '46px',
-        fontWeight: 500,
-        fontSize: '1.2em',
+        color: '#fff',
+        border: 'none',
+        fontWeight: 600,
+        maxWidth: '100%',
         cursor: 'pointer',
-        alignItems: 'center',
+        overflow: 'hidden',
+        textAlign: 'center',
+        borderRadius: '4px',
+        whiteSpace: 'nowrap',
+        padding: '1.2em 2em',
         background: '#9d5ffa',
-        display: 'inline-flex',
-        borderRadius: '.25rem',
-        textDecoration: 'none',
-        justifyContent: 'center',
+        letterSpacing: '.165em',
+        display: 'inline-block',
+        textOverflow: 'ellipsis',
         textTransform: 'uppercase',
-        border: '2px #9d5ffa solid',
+        fontFamily: 'Open Sans,sans-serif',
+        '-webkit-font-smoothing': 'antialiased',
+        boxShadow: '12px 15px 20px rgba(0,0,0,.1)',
+        transition:
+        'box-shadow .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out',
         ':hover': {
-          color: '#9d5ffa',
-          background: '#FFF',
+          background: '#7748bd',
+          boxShadow: '2px 4px 8px 0 rgba(0,0,0,.1)',
         },
         ...ccss,
+        fontSize: '12px',
       }}
     >
-      <span>{children}</span>
-    </div>
+      {children}
+    </button>
   );
 };
 

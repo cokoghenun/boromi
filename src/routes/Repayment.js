@@ -3,10 +3,10 @@ import { jsx } from '@emotion/core';
 import Button from '../components/Button';
 import TopBar from '../components/TopBar';
 
-const Request = () => {
+const Repayment = () => {
   return (
     <div>
-      <TopBar>Request</TopBar>
+      <TopBar>Repayment</TopBar>
       <div
         css={{
           margin: '0 auto',
@@ -130,4 +130,4 @@ const Request = () => {
   );
 };
 
-export default Request;
+export default Repayment;
