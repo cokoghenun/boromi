@@ -64,9 +64,9 @@ const Login = () => {
         </div>
         <header
           css={{
-            fontSize: '2rem',
-            fontWeight: '300',
             margin: '30px 0',
+            fontWeight: '300',
+            fontSize: '1.7rem',
             textAlign: 'center',
             textTransform: 'capitalize',
           }}
