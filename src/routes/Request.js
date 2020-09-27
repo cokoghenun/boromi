@@ -91,15 +91,18 @@ const Request = () => {
             </p>
             <input
               css={{
-                boxShadow: '5px 5px 10px 0 rgba(0,0,0,.05)',
-                borderRadius: '4px',
-                border: '1px solid #dbe2e8',
                 width: '100%',
+                height: '44px',
+                color: '#2e3d49',
+                fontSize: '14px',
+                borderRadius: '4px',
                 paddingLeft: '15px',
                 paddingRight: '15px',
-                fontSize: '14px',
-                color: '#2e3d49',
-                height: '44px',
+                border: '1px solid #dbe2e8',
+                boxShadow: '5px 5px 10px 0 rgba(0,0,0,.05)',
+                ':focus': {
+                  boxShadow: '0 0 0 4px #9d5ffa ',
+                },
               }}
               type='text'
             />

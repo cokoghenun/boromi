@@ -23,9 +23,7 @@ const Login = () => {
   const [activeTab, setActiveTab] = useState('signup');
   return (
     <div>
-      <TopBar>
-        get started
-      </TopBar>
+      <TopBar>get started</TopBar>
       <div
         css={{
           width: '620px',
@@ -33,7 +31,7 @@ const Login = () => {
           borderRadius: '6px',
           boxShadow: '0 0 20px 0 rgba(46,61,73,.15)',
         }}
-        >
+      >
         <div
           css={{
             display: 'flex',
@@ -84,12 +82,15 @@ const Login = () => {
             flexDirection: 'column',
             input: {
               width: '80%',
-              height: '2rem',
+              height: '44px',
+              fontSize: '14px',
               margin: '20px 0',
-              display: 'block',
-              borderRadius: '.25rem',
-              padding: '.625rem 1rem',
-              border: '1px solid #96a0aa',
+              color: '#2e3d49',
+              borderRadius: '4px',
+              paddingLeft: '15px',
+              paddingRight: '15px',
+              border: '1px solid #dbe2e8',
+              boxShadow: '5px 5px 10px 0 rgba(0,0,0,.05)',
               ':focus': {
                 boxShadow: '0 0 0 4px #9d5ffa ',
               },
@@ -119,7 +120,9 @@ const Login = () => {
             required
             placeholder='Password'
           />
-          <Button type='submit' ccss={{ margin: '20px 0'}}>{activeTab === 'signup' ? 'sign up' : 'sign in'}</Button>
+          <Button type='submit' ccss={{ margin: '20px 0' }}>
+            {activeTab === 'signup' ? 'sign up' : 'sign in'}
+          </Button>
         </form>
       </div>
     </div>
