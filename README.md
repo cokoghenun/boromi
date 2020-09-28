@@ -2,9 +2,9 @@
 
 Boromi​ is a loan requesting and management platform where users can request for loans.
 
-Live url can be found at (https://boromi.now.sh)[https://boromi.now.sh]
+Live url can be found at [https://boromi.now.sh](https://boromi.now.sh)
 
-Backend repo can be found (here)[https://github.com/cokoghenun/boromi-api]
+Backend repo can be found [here](https://github.com/cokoghenun/boromi-api)
 
 ## Setup
 
