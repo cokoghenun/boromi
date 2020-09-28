@@ -51,6 +51,7 @@ const Home = () => {
             css={{
               display: 'flex',
               margin: '30px 0',
+              lineHeight: '1.5',
               justifyContent: 'center',
             }}
           >

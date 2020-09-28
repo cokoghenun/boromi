@@ -3,8 +3,10 @@ import { jsx } from '@emotion/core';
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Button from '../components/Button';
+import Loading from '../components/Loading';
 import TopBar from '../components/TopBar';
 import fetcher from '../utils/fetcher';
+import mq from '../utils/mq';
 
 const tabCss = {
   signup: {
@@ -28,8 +30,10 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
+  const [showLoding, setShowLoading] = useState(false);
 
   const handleFormSubmit = async (e) => {
+    setShowLoading(true);
     e.preventDefault();
     const payLoad = { firstname, lastname, email, password };
     const [error, { token, name: sName, email: sEmail }] = await fetcher(
@@ -47,17 +51,20 @@ const Login = () => {
       localStorage.setItem('token', `Bearer ${token}`);
       setToken(true);
     }
+    setShowLoading(false);
   };
   if (token) return <Redirect to='/admin' />;
 
   return (
     <div>
+      {showLoding ? <Loading /> : null}
       <TopBar>get started</TopBar>
       <div
         css={{
-          width: '620px',
           margin: '0 auto',
           borderRadius: '6px',
+          maxWidth: 'calc(100% - 2rem)',
+          [mq[0]]: { maxWidth: '650px' },
           boxShadow: '0 0 20px 0 rgba(46,61,73,.15)',
         }}
       >

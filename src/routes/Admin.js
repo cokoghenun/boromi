@@ -4,15 +4,18 @@ import TopBar from '../components/TopBar';
 import Card from '../components/Card';
 import { Fragment, useEffect, useState } from 'react';
 import fetcher from '../utils/fetcher';
+import Loading from '../components/Loading';
+import mq from '../utils/mq';
 
 const Admin = ({ location: { pathname }, history }) => {
   const [loan, setLoan] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
   const handleViewClick = ({ id }) => {
-    // console.log(id);
     history.push(`/detail/${id}`);
   };
   useEffect(() => {
     (async () => {
+      setShowLoading(true);
       const [error, { data }] = await fetcher(
         'get',
         `${process.env.REACT_APP_API}/api/loan`
@@ -21,10 +24,12 @@ const Admin = ({ location: { pathname }, history }) => {
       if (data) {
         setLoan(data);
       }
+      setShowLoading(false);
     })();
   }, []);
   return (
     <div>
+      {showLoading ? <Loading /> : null}
       <TopBar
         ccss={{ textTransform: 'capitalize' }}
         pathname={pathname}
@@ -32,7 +37,13 @@ const Admin = ({ location: { pathname }, history }) => {
       >
         Your Loans
       </TopBar>
-      <div css={{ maxWidth: '700px', margin: '0 auto' }}>
+      <div
+        css={{
+          margin: '0 auto',
+          maxWidth: 'calc(100% - 2rem)',
+          [mq[0]]: { maxWidth: '650px' },
+        }}
+      >
         {loan[0] ? (
           <Fragment>
             <p
@@ -51,8 +62,8 @@ const Admin = ({ location: { pathname }, history }) => {
               cta='view'
               id={loan[0]._id}
               title={loan[0].plan}
-              content={loan[0].paymentperiod + ' payment period'}
               ctaCB={handleViewClick}
+              content={loan[0].paymentperiod + ' payment period'}
             />
           </Fragment>
         ) : (

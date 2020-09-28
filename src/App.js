@@ -14,7 +14,7 @@ function App() {
   return (
     <div
       className='App'
-      css={{ fontFamily: "'Noto Sans JP', sans-serif !Important" }}
+      css={{ fontFamily: "'Noto Sans JP', sans-serif !Important", position: 'relative' }}
     >
       <Router>
         <Switch>

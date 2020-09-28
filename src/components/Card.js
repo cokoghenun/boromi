@@ -1,5 +1,6 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
+import mq from '../utils/mq';
 import Button from './Button';
 
 const Card = ({ ccss, title, id = '', content, cta, ctaCB = () => {} }) => {
@@ -15,7 +16,7 @@ const Card = ({ ccss, title, id = '', content, cta, ctaCB = () => {} }) => {
         ...ccss,
       }}
     >
-      <div css={{ width: '75%' }}>
+      <div css={{ width: '70%', [mq[0]]: { width: '75%' } }}>
         <div
           css={{
             fontWeight: '500',
@@ -28,15 +29,15 @@ const Card = ({ ccss, title, id = '', content, cta, ctaCB = () => {} }) => {
         </div>
         <div
           css={{
-            fontSize: '.875rem',
             color: '#58646d',
-            textTransform: 'capitalize',
+            fontSize: '.875rem',
+            textTransform: id ? 'capitalize' : 'initial',
           }}
         >
           {content}
         </div>
       </div>
-      <div css={{ width: '25%', textAlign: 'center', marginLeft: '10px' }}>
+      <div css={{ width: '30%', [mq[0]]: { width: '25%' }, textAlign: 'center', marginLeft: '10px' }}>
         <Button
           ccss={{ fontSize: '.95rem' }}
           onClick={() => {

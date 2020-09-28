@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core';
 import { useState } from 'react';
 import Button from '../components/Button';
 import TopBar from '../components/TopBar';
+import mq from '../utils/mq';
 
 const Request = ({ history: { goBack, push } }) => {
   const [category, setCategory] = useState('personal');
@@ -20,8 +21,9 @@ const Request = ({ history: { goBack, push } }) => {
       <div
         css={{
           margin: '0 auto',
-          maxWidth: '700px',
           borderRadius: '6px',
+          maxWidth: 'calc(100% - 2rem)',
+          [mq[0]]: { maxWidth: '650px' },
           boxShadow: '0 0 20px 0 rgba(46,61,73,.15)',
         }}
       >
@@ -152,7 +154,10 @@ const Request = ({ history: { goBack, push } }) => {
           <div
             css={{
               display: 'flex',
-              padding: '45px 70px',
+              padding: '25px 40px',
+              [mq[0]]: {
+                padding: '45px 70px',
+              },
               borderTop: '1px solid #dbe2e8',
               justifyContent: 'space-between',
             }}
