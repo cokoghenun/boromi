@@ -5,7 +5,6 @@ const fetcher = async (method, url, data) => {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
         Authorization: localStorage.getItem('token'),
       },
     });
