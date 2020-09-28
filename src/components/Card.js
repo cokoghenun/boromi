@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import Button from './Button';
 
-const Card = ({ ccss, title, content, cta }) => {
+const Card = ({ ccss, title, id = '', content, cta, ctaCB = () => {} }) => {
   return (
     <div
       css={{
@@ -26,10 +26,25 @@ const Card = ({ ccss, title, content, cta }) => {
         >
           {title}
         </div>
-        <div css={{ fontSize: '.875rem', color: '#58646d' }}>{content}</div>
+        <div
+          css={{
+            fontSize: '.875rem',
+            color: '#58646d',
+            textTransform: 'capitalize',
+          }}
+        >
+          {content}
+        </div>
       </div>
       <div css={{ width: '25%', textAlign: 'center', marginLeft: '10px' }}>
-        <Button ccss={{ fontSize: '.95rem' }}>{cta}</Button>
+        <Button
+          ccss={{ fontSize: '.95rem' }}
+          onClick={() => {
+            ctaCB({ title, id });
+          }}
+        >
+          {cta}
+        </Button>
       </div>
     </div>
   );

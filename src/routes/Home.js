@@ -39,10 +39,10 @@ const Home = () => {
             />
             <span
               css={{
-                fontSize: '2em',
+                fontSize: '3em',
               }}
             >
-              boromi
+              Boromi
             </span>
           </div>
         </header>
@@ -54,12 +54,16 @@ const Home = () => {
               justifyContent: 'center',
             }}
           >
-            <p css={{ maxWidth: '500px' }}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore
-              delectus, dolores odio possimus quis alias ab, blanditiis aperiam
-              magni explicabo recusandae nobis magnam beatae! In autem odio
-              quaerat magni facilis.
-            </p>
+            <div css={{ maxWidth: '500px' }}>
+              <p>
+                Do you have an urgent need for cash to settle bills, take care
+                of emergencies or grab an opportunity? Does payday seem so far
+                and bills are piling up? Don’t worry! Boromi has got you covered.
+              </p>
+              <p>
+                Apply for a loan now and get the funds in less than 5 minuts.
+              </p>
+            </div>
           </div>
           <Link to='/login'>
             <Button>get started</Button>

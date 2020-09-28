@@ -1,8 +1,10 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Button from '../components/Button';
 import TopBar from '../components/TopBar';
+import fetcher from '../utils/fetcher';
 
 const tabCss = {
   signup: {
@@ -21,6 +23,33 @@ const tabCss = {
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState('signup');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const payLoad = { firstname, lastname, email, password };
+    const [error, { token, name: sName, email: sEmail }] = await fetcher(
+      'post',
+      `${process.env.REACT_APP_API}/${
+        activeTab === 'signup' ? 'signup' : 'signin'
+      }`,
+      payLoad
+    );
+    if (error) console.log({ error });
+
+    if (token) {
+      localStorage.setItem('name', sName);
+      localStorage.setItem('email', sEmail);
+      localStorage.setItem('token', `Bearer ${token}`);
+      setToken(true);
+    }
+  };
+  if (token) return <Redirect to='/admin' />;
+
   return (
     <div>
       <TopBar>get started</TopBar>
@@ -96,27 +125,49 @@ const Login = () => {
               },
             },
           }}
+          onSubmit={handleFormSubmit}
         >
           {activeTab === 'signup' ? (
             <React.Fragment>
               <input
                 type='text'
                 name='firstName'
+                value={firstname}
+                onChange={({ target }) => {
+                  setFirstname(target.value);
+                }}
                 required
                 placeholder='First Name'
               />
               <input
                 type='text'
                 name='LastName'
+                value={lastname}
+                onChange={({ target }) => {
+                  setLastname(target.value);
+                }}
                 required
                 placeholder='Last Name'
               />
             </React.Fragment>
           ) : null}
-          <input type='email' name='email' required placeholder='Email' />
+          <input
+            type='email'
+            name='email'
+            value={email}
+            onChange={({ target }) => {
+              setEmail(target.value);
+            }}
+            required
+            placeholder='Email'
+          />
           <input
             type='password'
             name='password'
+            value={password}
+            onChange={({ target }) => {
+              setPassword(target.value);
+            }}
             required
             placeholder='Password'
           />

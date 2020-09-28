@@ -1,9 +1,23 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
+import { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import TopBar from '../components/TopBar';
+import fetcher from '../utils/fetcher';
 
-const Detail = () => {
+const Detail = ({ location: { pathname }, history: { goBack } }) => {
+  const [loan, setLoan] = useState({ amount: 0, paymentamount: 0 });
+  useEffect(() => {
+    const id = pathname.replace('/detail/', '');
+    (async () => {
+      const [error, { data }] = await fetcher(
+        'get',
+        `${process.env.REACT_APP_API}/api/loan/${id}`
+      );
+      if (error) console.log({ error });
+      if (data) setLoan(data);
+    })();
+  }, [pathname]);
   return (
     <div>
       <TopBar ccss={{ textTransform: 'capitalize' }}>details</TopBar>
@@ -24,18 +38,50 @@ const Detail = () => {
             textTransform: 'capitalize',
           }}
         >
-          Loan Dafm
+          Loan Information
         </header>
-        <p
+        <div
           css={{
             color: '#58646d',
           }}
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore
-          delectus, dolores odio possimus quis alias ab, blanditiis aperiam
-          magni explicabo.
-        </p>
-        <Button ccss={{ display: 'block', margin: '20px auto 0' }}>Back</Button>
+          <p>
+            Amount:{' '}
+            <strong>
+              N {String(loan.amount).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </strong>
+          </p>
+          <p>
+            Plan Type: <strong>{loan.plan}</strong>
+          </p>
+          <p>
+            Loan ID: <strong>{loan._id}</strong>
+          </p>{' '}
+          <p>
+            Loan Date: <strong>{loan.createdAt}</strong>
+          </p>
+          <p>
+            Category: <strong>{loan.category}</strong>
+          </p>
+          <p>
+            Payment Period: <strong>{loan.paymentperiod}</strong>
+          </p>
+          <p>
+            Payment Amount:{' '}
+            <strong>
+              N{' '}
+              {String(loan.paymentamount)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </strong>
+          </p>
+        </div>
+        <Button
+          ccss={{ display: 'block', margin: '20px auto 0' }}
+          onClick={() => goBack()}
+        >
+          Back
+        </Button>
       </div>
     </div>
   );

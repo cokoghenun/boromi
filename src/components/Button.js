@@ -1,9 +1,10 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 
-const Button = ({ children, ccss }) => {
+const Button = ({ children, ccss, ...props }) => {
   return (
     <button
+      {...props}
       css={{
         color: '#fff',
         border: 'none',
@@ -21,10 +22,10 @@ const Button = ({ children, ccss }) => {
         textOverflow: 'ellipsis',
         textTransform: 'uppercase',
         fontFamily: 'Open Sans,sans-serif',
-        '-webkit-font-smoothing': 'antialiased',
+        WebkitFontSmoothing: 'antialiased',
         boxShadow: '12px 15px 20px rgba(0,0,0,.1)',
         transition:
-        'box-shadow .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out',
+          'box-shadow .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out',
         ':hover': {
           background: '#7748bd',
           boxShadow: '2px 4px 8px 0 rgba(0,0,0,.1)',
